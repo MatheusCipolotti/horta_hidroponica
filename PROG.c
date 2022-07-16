@@ -14,6 +14,7 @@ Frequência clock: 20MHz
 
 #define ATVRD   RB7_bit
 #define STRD    RB0_bit
+#define ATVBMB  RC2_bit
 #define FGC     RD2_bit
 #define ATVBT1  RD7_bit
 
@@ -22,8 +23,10 @@ int bc=0;
 void main() {
 
      TRISB = 0b00110001;
+     TRISC = 0b00000000;
      TRISD = 0b00000100;
      PORTB = 0b00000000;
+     PORTC = 0b00000000;
      PORTD = 0b00000000;
 
       while(1){
@@ -51,5 +54,6 @@ void main() {
 
                        ATVBT1 = 0;
                }
+               ATVBMB = 1;
       }
 }
